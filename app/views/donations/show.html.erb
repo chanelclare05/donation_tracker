@@ -1,2 +1,9 @@
 <h1>Donations#show</h1>
 <p>Find me in app/views/donations/show.html.erb</p>
+
+
+<%= @donation.amount%>
+<%= @donation.organization_id%>
+<%= @donation.date%>
+
+<%= link_to('delete', donation_path(@donation), method: 'delete' )%>

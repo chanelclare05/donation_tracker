@@ -8,24 +8,36 @@ class DonationsController < ApplicationController
   end
 
   def edit
+    @donation = Donation.find_by_id(params[:id])
   end
 
-  def show
+  def show #show a single donation / '/donations/:id' / donation_path(donation id)
+    @donation = Donation.find_by_id(params[:id])
   end
 
   def create #responsibility: process a new form #route: /donations #path: new_donation_path (only used on server side)
-    @donation = Donation.create(donation_params)
+    @donation = Donation.new(donation_params)
+      if @donation.save
+        redirect_to donation_path(@donation)
+      else 
+        render :new
+      end 
   end 
 
   def update
+    @donation = Donation.find_by_id(params[:id])
+    @donation.update(donation_params(:amount))
   end 
 
-  def destroy 
+  def destroy
+    @donation = Donation.find_by_id(params[:id])
+    @donation.destroy
+    redirect_to donations_path
   end 
 
   private 
 
   def donation_params #strong params: permits fields being submitted 
-    reqire(:donation).permit(:amount, :date, :user_id, :organization_id)
+    params.require(:donation).permit(:amount, :date, :user_id, :organization_id)
   end 
 end

@@ -24,3 +24,7 @@
 #   {name: 'American Cancer Society'},
 #   {name: 'The Salvation Army'}
 # ])
+
+Donation.create([
+  {amount: 25, date: 10/10/2020, user_id: 2, :organization_id: 3}
+])
