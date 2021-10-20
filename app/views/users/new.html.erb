@@ -1,2 +1,15 @@
 <h1>Users#new</h1>
 <p>Find me in app/views/users/new.html.erb</p>
+
+<h3>Form With</h3>
+<%= form_with mode: @donation do |f| %>
+
+<%= f.label :username %>
+<%= f.text_field :username %>
+
+<%= f.label :password %>
+<%= f.password_field :organization_id %>
+
+<%= f.submit %>
+
+<% end %>

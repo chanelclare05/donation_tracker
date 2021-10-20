@@ -18,3 +18,31 @@
 
 ## Instance Variables 
   - Instance Variables are only for those to be shared to the view from controller 
+
+
+
+## Validations 
+- What are validations 
+  - make sure we dont have bad data
+  - set certain requirements
+
+- where do validations get defines
+  - in the model at the very top of the file 
+
+- native validations
+  - foreign key in your table -> will set its wn requirement 
+  - bcrypt will add required passwords 
+
+## Defining Validations
+  - go inside the model after associations
+  - method validates: attr, helper 
+
+## What invokes our validations
+(lifecycle methods)
+- Everytime we touch our database
+- (lifecycle methods) .save, .create, .update
+- (non-lifecycle methods)  .valid, .invalid?
+
+## How to know we have erred
+- @errors => .errors
+- Only used once it has been persisted 
